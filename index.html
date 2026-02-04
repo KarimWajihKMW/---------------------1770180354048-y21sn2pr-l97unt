@@ -196,7 +196,7 @@
                              <button class="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition">
                                 <i class="fa-solid fa-share-nodes text-sm"></i>
                              </button>
-                             <button class="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition">
+                             <button onclick="switchTab('settings')" class="w-8 h-8 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/30 transition">
                                 <i class="fa-solid fa-gear text-sm"></i>
                              </button>
                         </div>
@@ -304,7 +304,7 @@
                         <div class="w-2 h-2 rounded-full bg-red-500"></div>
                     </div>
 
-                     <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
+                     <div onclick="switchTab('settings')" class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600">
                                 <i class="fa-solid fa-gear"></i>
@@ -312,6 +312,169 @@
                             <span class="font-bold text-sm text-gray-800">الإعدادات</span>
                         </div>
                          <i class="fa-solid fa-chevron-left text-gray-300 text-xs"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SETTINGS VIEW -->
+            <div id="settings-view" class="hidden transition-opacity duration-300">
+                <!-- Settings Header -->
+                <div class="bg-gradient-to-r from-purple-600 to-indigo-600 px-5 py-6 flex items-center gap-4 text-white shadow-lg">
+                    <button onclick="switchTab('profile')" class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/30 transition">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <h2 class="text-xl font-bold">الإعدادات</h2>
+                </div>
+
+                <!-- Settings Content -->
+                <div class="px-4 py-6 space-y-4">
+                    <!-- Account Settings Section -->
+                    <div>
+                        <h3 class="text-xs font-bold text-gray-400 mb-3 px-2">الحساب</h3>
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition border-b border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                                        <i class="fa-solid fa-user-pen"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">تعديل الملف الشخصي</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-left text-gray-300 text-xs"></i>
+                            </button>
+                            <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition border-b border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600">
+                                        <i class="fa-solid fa-key"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">تغيير كلمة المرور</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-left text-gray-300 text-xs"></i>
+                            </button>
+                            <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">الخصوصية والأمان</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-left text-gray-300 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Notifications Section -->
+                    <div>
+                        <h3 class="text-xs font-bold text-gray-400 mb-3 px-2">الإشعارات</h3>
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <div class="p-4 flex items-center justify-between border-b border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center text-yellow-600">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">إشعارات الرسائل</span>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                </label>
+                            </div>
+                            <div class="p-4 flex items-center justify-between border-b border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-pink-600">
+                                        <i class="fa-solid fa-gift"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">إشعارات الهدايا</span>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                </label>
+                            </div>
+                            <div class="p-4 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600">
+                                        <i class="fa-solid fa-volume-high"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">الأصوات</span>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" checked class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appearance Section -->
+                    <div>
+                        <h3 class="text-xs font-bold text-gray-400 mb-3 px-2">المظهر</h3>
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition border-b border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600">
+                                        <i class="fa-solid fa-palette"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">المظهر والثيمات</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-left text-gray-300 text-xs"></i>
+                            </button>
+                            <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600">
+                                        <i class="fa-solid fa-language"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">اللغة</span>
+                                </div>
+                                <span class="text-sm text-gray-400">العربية</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Other Settings Section -->
+                    <div>
+                        <h3 class="text-xs font-bold text-gray-400 mb-3 px-2">أخرى</h3>
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                            <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition border-b border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600">
+                                        <i class="fa-solid fa-circle-question"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">المساعدة والدعم</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-left text-gray-300 text-xs"></i>
+                            </button>
+                            <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition border-b border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-600">
+                                        <i class="fa-solid fa-file-lines"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">الشروط والأحكام</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-left text-gray-300 text-xs"></i>
+                            </button>
+                            <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition border-b border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-600">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800">عن التطبيق</span>
+                                </div>
+                                <i class="fa-solid fa-chevron-left text-gray-300 text-xs"></i>
+                            </button>
+                            <button class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-800 text-red-600">تسجيل الخروج</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- App Version -->
+                    <div class="text-center py-4">
+                        <p class="text-xs text-gray-400">نسخة التطبيق 1.0.0</p>
                     </div>
                 </div>
             </div>
