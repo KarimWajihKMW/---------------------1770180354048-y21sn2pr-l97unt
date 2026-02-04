@@ -6,7 +6,6 @@ let currentRoomId = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- TRANSITION LOGIC ---
-    // Preserving the original "card" click event logic but upgrading the action
     const landingCard = document.querySelector('.card');
     const landingPage = document.getElementById('landing-page');
     const mainApp = document.getElementById('main-app');
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 landingPage.style.display = 'none';
                 mainApp.classList.remove('hidden');
-                // Slight delay to allow display:block to apply before opacity transition
                 setTimeout(() => {
                     mainApp.classList.remove('opacity-0');
                 }, 50);
@@ -35,13 +33,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// --- NAVIGATION LOGIC ---
+function switchTab(tabId) {
+    const homeView = document.getElementById('home-view');
+    const profileView = document.getElementById('profile-view');
+    const appHeader = document.getElementById('app-header');
+    
+    // Nav Buttons
+    const navHome = document.getElementById('nav-home');
+    const navProfile = document.getElementById('nav-profile');
+
+    // Reset all nav styles to inactive
+    const allNavs = document.querySelectorAll('.nav-btn');
+    allNavs.forEach(btn => {
+        btn.classList.remove('text-purple-600');
+        btn.classList.add('text-gray-400');
+        const icon = btn.querySelector('i');
+        if(icon.classList.contains('fa-solid')) {
+             icon.classList.remove('fa-solid');
+             icon.classList.add('fa-regular');
+        }
+    });
+
+    if (tabId === 'home') {
+        homeView.classList.remove('hidden');
+        profileView.classList.add('hidden');
+        appHeader.classList.remove('hidden');
+        
+        // Active Style for Home
+        navHome.classList.remove('text-gray-400');
+        navHome.classList.add('text-purple-600');
+        navHome.querySelector('i').classList.remove('fa-regular');
+        navHome.querySelector('i').classList.add('fa-solid');
+
+    } else if (tabId === 'profile') {
+        homeView.classList.add('hidden');
+        profileView.classList.remove('hidden');
+        appHeader.classList.add('hidden');
+
+        // Active Style for Profile
+        navProfile.classList.remove('text-gray-400');
+        navProfile.classList.add('text-purple-600');
+        navProfile.querySelector('i').classList.remove('fa-regular');
+        navProfile.querySelector('i').classList.add('fa-solid');
+    }
+}
+
 // Open Room Functionality
 function openRoom(roomId) {
     currentRoomId = roomId;
     const overlay = document.getElementById('room-overlay');
     const title = document.getElementById('current-room-title');
     
-    // Set dynamic content based on room (Mock)
     if(roomId === 'room1') {
         title.innerText = 'سهرة طرب خليجي 🎵';
     } else {
@@ -55,7 +98,6 @@ function openRoom(roomId) {
 function minimizeRoom() {
     const overlay = document.getElementById('room-overlay');
     overlay.classList.add('translate-y-full');
-    // We keep the room state 'active' in background conceptually
 }
 
 // Toggle Mic Logic
@@ -90,7 +132,6 @@ function sendGift() {
     
     container.appendChild(element);
     
-    // Remove after animation
     setTimeout(() => {
         element.remove();
     }, 2000);
