@@ -52,3 +52,19 @@ body {
 .mask-image-b {
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
+
+/* Soft Fade for tab switching */
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+}
