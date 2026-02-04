@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+/* Scrollbar Hide */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow {
+    animation: bounce-slow 3s infinite ease-in-out;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+.animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(234, 179, 8, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
+}
+.animate-pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom Gift Float Animation */
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(0.5); opacity: 0; }
+    10% { opacity: 1; transform: translateY(-20px) scale(1.2); }
+    100% { transform: translateY(-150px) scale(1); opacity: 0; }
+}
+.float-up {
+    animation: floatUp 2s ease-out forwards;
+}
+
+.mask-image-b {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
