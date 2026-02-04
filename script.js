@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function switchTab(tabId) {
     const homeView = document.getElementById('home-view');
     const profileView = document.getElementById('profile-view');
+    const settingsView = document.getElementById('settings-view');
     const appHeader = document.getElementById('app-header');
     
     // Nav Buttons
@@ -58,6 +59,7 @@ function switchTab(tabId) {
     if (tabId === 'home') {
         homeView.classList.remove('hidden');
         profileView.classList.add('hidden');
+        settingsView.classList.add('hidden');
         appHeader.classList.remove('hidden');
         
         // Active Style for Home
@@ -69,6 +71,7 @@ function switchTab(tabId) {
     } else if (tabId === 'profile') {
         homeView.classList.add('hidden');
         profileView.classList.remove('hidden');
+        settingsView.classList.add('hidden');
         appHeader.classList.add('hidden');
 
         // Active Style for Profile
@@ -76,6 +79,11 @@ function switchTab(tabId) {
         navProfile.classList.add('text-purple-600');
         navProfile.querySelector('i').classList.remove('fa-regular');
         navProfile.querySelector('i').classList.add('fa-solid');
+    } else if (tabId === 'settings') {
+        homeView.classList.add('hidden');
+        profileView.classList.add('hidden');
+        settingsView.classList.remove('hidden');
+        appHeader.classList.add('hidden');
     }
 }
 
